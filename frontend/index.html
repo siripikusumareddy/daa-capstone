@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Space Dominator 3000</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Deep Space Dominator 3000</h1>
+            <p class="subtitle">Real-time Cosmic Signal Analysis System</p>
+            <div class="status-badge" id="status-badge">● Online</div>
+        </header>
+
+        <div class="dashboard">
+            <!-- Control Panel -->
+            <div class="card control-panel">
+                <h2>🎮 Control Panel</h2>
+                
+                <div class="control-section">
+                    <h3>Manual Update</h3>
+                    <div class="input-group">
+                        <label>Receiver Index (0-99):</label>
+                        <input type="number" id="update-index" min="0" max="99" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label>New Intensity:</label>
+                        <input type="number" id="update-value" min="0" max="1000" value="50">
+                    </div>
+                    <button onclick="manualUpdate()" class="btn-primary">Update Receiver</button>
+                </div>
+
+                <div class="control-section">
+                    <h3>Range Query</h3>
+                    <div class="input-group">
+                        <label>Start Index (L):</label>
+                        <input type="number" id="query-start" min="0" max="99" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label>End Index (R):</label>
+                        <input type="number" id="query-end" min="0" max="99" value="10">
+                    </div>
+                    <button onclick="manualQuery()" class="btn-secondary">Query Range</button>
+                </div>
+
+                <div class="control-section">
+                    <h3>Simulation</h3>
+                    <button onclick="runSimulation()" class="btn-success">Run Simulation Step</button>
+                    <button onclick="startAutoSim()" class="btn-warning" id="auto-btn">Start Auto Simulation</button>
+                    <button onclick="stopAutoSim()" class="btn-danger" id="stop-btn" disabled>Stop</button>
+                </div>
+            </div>
+
+            <!-- Live Statistics -->
+            <div class="card stats-panel">
+                <h2>📊 Current Query Results</h2>
+                <div id="query-results" class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Range:</span>
+                        <span class="stat-value" id="range-display">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Minimum:</span>
+                        <span class="stat-value" id="min-display">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Maximum:</span>
+                        <span class="stat-value" id="max-display">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Mean:</span>
+                        <span class="stat-value" id="mean-display">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Variance:</span>
+                        <span class="stat-value" id="variance-display">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Log -->
+            <div class="card log-panel">
+                <h2>📝 Cosmic Event Log</h2>
+                <div id="event-log" class="log-container">
+                    <div class="log-entry">System initialized. Waiting for signals...</div>
+                </div>
+            </div>
+
+            <!-- Heat Map -->
+            <div class="card heatmap-panel">
+                <h2>🔥 Receiver Heat Map</h2>
+                <div class="heatmap-container" id="heatmap-container">
+                    <canvas id="heatmap-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
